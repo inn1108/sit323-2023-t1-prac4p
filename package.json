@@ -1,0 +1,11 @@
+{
+  "name": "sit323-2023-t1-prac4p",
+  "version": "1.0.0",
+  "description": "CI/CD TEST",
+  "main": "calculator.js",
+  "scripts": {
+    "test": "INN"
+  },
+  "author": "",
+  "license": "ISC"
+}
