@@ -1,0 +1,35 @@
+name: CI-CD-Test
+
+on:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: username/repo:tag
+        # Add steps to build and push Docker image
+
+      - name: Deploy to Kubernetes
+        run: kubectl apply -f createDeployment
+        # Add steps to deploy to Kubernetes cluster
+
+      - name: Configure test environment
+        run: npm run setup-test-environment
+
+      - name: Run tests
+        run: npm test
