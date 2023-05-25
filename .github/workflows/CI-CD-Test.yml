@@ -21,12 +21,11 @@ jobs:
         with:
           context: .
           push: true
-          tags: username/repo:tag
-        # Add steps to build and push Docker image
+          tags: inn997109/sit323week5:latest
 
       - name: Deploy to Kubernetes
         run: kubectl apply -f createDeployment
-        # Add steps to deploy to Kubernetes cluster
+      
 
       - name: Configure test environment
         run: npm run setup-test-environment
